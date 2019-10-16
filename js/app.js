@@ -44,23 +44,39 @@ class Player {
   handleInput(arrow) {
     // left arrow
     if (arrow === "left") {
-      // modify x position
-      this.positionX -= 100;
+      // prevent player from getting out screen(left)
+      if (this.positionX > 0) {
+        // modify x position
+        this.positionX -= 100;
+      }
     }
     // right arrow
     else if (arrow === "right") {
-      // modify x position
-      this.positionX += 100;
+      // prevent player from getting out screen(right)
+      if (this.positionX !== 400) {
+        // modify x position
+        this.positionX += 100;
+      }
     }
     // up arrow
     else if (arrow === "up") {
-      // modify y position
-      this.positionY -= 100;
+      // prevent player from getting out screen(up)
+      if (this.positionY > 6) {
+        // modify y position
+        this.positionY -= 100;
+        // winning case
+        if (this.positionY === 6) {
+          console.log("win");
+        }
+      }
     }
     // down arrow
     else if (arrow === "down") {
-      // modify y position
-      this.positionY += 100;
+      // prevent player from getting out screen(down)
+      if (this.positionY < 406) {
+        // modify y position
+        this.positionY += 100;
+      }
     }
   }
 }
