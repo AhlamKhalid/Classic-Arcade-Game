@@ -40,6 +40,29 @@ class Player {
   render() {
     ctx.drawImage(Resources.get(this.sprite), this.positionX, this.positionY);
   }
+  // move player according to the pressed arrow
+  handleInput(arrow) {
+    // left arrow
+    if (arrow === "left") {
+      // modify x position
+      this.positionX -= 100;
+    }
+    // right arrow
+    else if (arrow === "right") {
+      // modify x position
+      this.positionX += 100;
+    }
+    // up arrow
+    else if (arrow === "up") {
+      // modify y position
+      this.positionY -= 100;
+    }
+    // down arrow
+    else if (arrow === "down") {
+      // modify y position
+      this.positionY += 100;
+    }
+  }
 }
 
 // get the canvas as part of the window object(this)
