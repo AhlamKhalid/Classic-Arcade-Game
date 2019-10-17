@@ -89,27 +89,30 @@ class Player {
   }
   // when player reaches the water
   reachWater() {
-    // increment counter
-    this.winCounter += 1;
-    // player wins 3 times (blue diamond)
-    if (this.winCounter === 3) {
-      // make diamond visible
-      blueDiamond.classList.remove("transparent");
-      blueDiamond.classList.add("visible");
-      // update text above diamonds
-      text.innerHTML = "Keep going..";
-    }
-    // player wins 6 times (gold diamond)
-    else if (this.winCounter === 6) {
-      goldDiamond.classList.remove("transparent");
-      goldDiamond.classList.add("visible");
-      text.innerHTML = "You're almost there";
-    }
-    // player wins 9 times (green diamond)
-    else if (this.winCounter === 9) {
-      greenDiamond.classList.remove("transparent");
-      greenDiamond.classList.add("visible");
-      text.innerHTML = "You win!!";
+    // to win, user reaches water three times only
+    if (this.winCounter < 3) {
+      // increment counter
+      this.winCounter += 1;
+      // player wins for the first time (blue diamond)
+      if (this.winCounter === 1) {
+        // make diamond visible
+        blueDiamond.classList.remove("transparent");
+        blueDiamond.classList.add("visible");
+        // update text above diamonds
+        text.innerHTML = "Keep going..";
+      }
+      // player wins for the second time (gold diamond)
+      else if (this.winCounter === 2) {
+        goldDiamond.classList.remove("transparent");
+        goldDiamond.classList.add("visible");
+        text.innerHTML = "You're almost there";
+      }
+      // player wins for the third time (green diamond)
+      else if (this.winCounter === 3) {
+        greenDiamond.classList.remove("transparent");
+        greenDiamond.classList.add("visible");
+        text.innerHTML = "You win!!";
+      }
     }
     // move player to initial location
     setTimeout(() => {
