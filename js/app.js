@@ -19,6 +19,13 @@ class Enemy {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
+
+    // change position at x-axis continuously
+    this.positionX += dt * this.speed;
+    // if enemey gets out of canvas, reset its position
+    if (this.positionX > 600) {
+      this.positionX = -100;
+    }
   }
   // Draw the enemy on the screen, required method for game
   render() {
@@ -129,8 +136,17 @@ const ctx = this.ctx;
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 
-// player object
+// Player object
 const player = new Player();
+
+// Enemy object.
+// speed = 200 (as the speed increases, the enemey becomes faster)
+// positionX = -100 (out of canvas from the left)
+// positionY = 206 (first rock line)
+const enemy = new Enemy(200, -100, 206);
+
+// Add enemies to an array
+const allEnemies = [enemy];
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
