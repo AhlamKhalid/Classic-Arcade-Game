@@ -35,6 +35,8 @@ class Player {
     this.positionX = 200;
     // Y-axis position
     this.positionY = 406;
+    // counter helps to get the diamonds
+    this.winCounter = 0;
   }
   // draw the player on canvas
   render() {
@@ -66,7 +68,8 @@ class Player {
         this.positionY -= 100;
         // winning case
         if (this.positionY === 6) {
-          console.log("win");
+          // call reachWater function
+          this.reachWater();
         }
       }
     }
@@ -78,6 +81,36 @@ class Player {
         this.positionY += 100;
       }
     }
+  }
+  // when player reaches the water
+  reachWater() {
+    // increment counter
+    this.winCounter += 1;
+    // player wins 3 times (blue diamond)
+    if (this.winCounter === 3) {
+      // make diamond visible
+      blueDiamond.classList.remove("transparent");
+      blueDiamond.classList.add("visible");
+      // update text above diamonds
+      text.innerHTML = "Keep going..";
+    }
+    // player wins 6 times (gold diamond)
+    else if (this.winCounter === 6) {
+      goldDiamond.classList.remove("transparent");
+      goldDiamond.classList.add("visible");
+      text.innerHTML = "You're almost there";
+    }
+    // player wins 9 times (green diamond)
+    else if (this.winCounter === 9) {
+      greenDiamond.classList.remove("transparent");
+      greenDiamond.classList.add("visible");
+      text.innerHTML = "You win!!";
+    }
+    // move player to initial location
+    setTimeout(() => {
+      this.positionX = 200;
+      this.positionY = 406;
+    }, 200);
   }
 }
 
@@ -102,3 +135,12 @@ document.addEventListener("keyup", function(e) {
   };
   player.handleInput(allowedKeys[e.keyCode]);
 });
+
+// text above diamonds
+const text = document.querySelector(".diamonds-text");
+// blue diamond
+const blueDiamond = document.querySelector("#blue-diamond");
+// gold diamond
+const goldDiamond = document.querySelector("#gold-diamond");
+// green diamond
+const greenDiamond = document.querySelector("#green-diamond");

@@ -1,3 +1,58 @@
 body {
-    text-align: center;
+  text-align: center;
+}
+
+/* ------------------ */
+/* style for diamonds */
+/* ------------------ */
+
+/* container */
+.diamonds-container {
+  background-color: rgb(223, 217, 200);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+/* text */
+.diamonds-text {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  font-size: 25px;
+  /* top right,left bottom */
+  padding: 15px 0 5px;
+  margin: 0;
+}
+
+/* each diamond */
+.diamond {
+  width: 50px;
+  height: 90px;
+  margin: 5px;
+}
+
+/* initial state of diamond (transparent)*/
+.transparent {
+  opacity: 0.4;
+}
+
+/* diamond gets clearly visible */
+.visible {
+  opacity: 1;
+  /* animation */
+  animation: pulse 0.5s;
+}
+
+/* animation for diamond when gets visible */
+@keyframes pulse {
+  0%,
+  50%,
+  100% {
+    /* original size */
+    transform: scale(1);
+  }
+  25%,
+  75% {
+    /* icrease size by half */
+    transform: scale(1.5);
+  }
 }
