@@ -141,6 +141,23 @@ function generateSpeed() {
   return Math.floor(Math.random() * (400 - 100 + 1)) + 100;
 }
 
+// create enemy objects
+// speed = random (as the speed increases, the enemey becomes faster)
+// positionX = -100 (out of canvas from the left)
+// positionY equals to first, second and third rock lines
+function createEnemies() {
+  // loop of three iterations
+  for (iteration of [1, 2, 3]) {
+    // loop through each rock line
+    for (rockLine of [50, 130, 206]) {
+      // enemy
+      const enemy = new Enemy(generateSpeed(), -100, rockLine);
+      // push enemy to allEnemies array
+      allEnemies.push(enemy);
+    }
+  }
+}
+
 // get the canvas as part of the window object(this)
 const ctx = this.ctx;
 
@@ -151,14 +168,11 @@ const ctx = this.ctx;
 // Player object
 const player = new Player();
 
-// Enemy object.
-// speed = random (as the speed increases, the enemey becomes faster)
-// positionX = -100 (out of canvas from the left)
-// positionY = 206 (first rock line)
-const enemy = new Enemy(generateSpeed(), -100, 206);
+// array of enemies
+const allEnemies = [];
 
-// Add enemies to an array
-const allEnemies = [enemy];
+// call createEnemies function
+createEnemies();
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.

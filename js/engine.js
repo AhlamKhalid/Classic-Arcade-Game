@@ -79,7 +79,7 @@ var Engine = (function(global) {
    */
   function update(dt) {
     updateEntities(dt);
-    checkCollisions();
+    // checkCollisions();
   }
 
   // handles collision detection
