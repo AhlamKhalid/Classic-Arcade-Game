@@ -49,6 +49,8 @@ class Player {
     this.positionY = 406;
     // counter helps to get the diamonds
     this.winCounter = 0;
+    // flag to deteremine if there is a collision
+    this.isCollied = false;
   }
   // reset player if collision happened
   update() {
@@ -133,6 +135,28 @@ class Player {
       this.positionX = 200;
       this.positionY = 406;
     }, 200);
+  }
+  // detects collision with enemies
+  checkCollisions() {
+    // reset isCollied flag
+    this.isCollied = false;
+    // compare player x & y position against enemy x & y position
+    // x position: to ensure detection in any part of enemy (tail, center, head)
+    // y position: handle colliding in each of the rock lines
+    allEnemies.forEach(enemy => {
+      if (
+        this.positionX <= Math.floor(enemy.positionX) + 60 &&
+        this.positionX >= Math.floor(enemy.positionX) - 60 &&
+        (this.positionY === enemy.positionY ||
+          (this.positionY === 106 && enemy.positionY === 130) ||
+          (this.positionY === 6 && enemy.positionY === 50))
+      ) {
+        // there is collision
+        this.isCollied = true;
+      }
+    });
+    // return isCollied value
+    return this.isCollied;
   }
 }
 

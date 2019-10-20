@@ -82,29 +82,17 @@ var Engine = (function(global) {
     checkCollisions();
   }
 
-  // handles collision detection
+  // check collision detection
   function checkCollisions() {
-    // compare player x & y position against enemy x & y position
-    // x position: to ensure detection in any part of enemy (tail, center, head)
-    // y position: handle colliding in each of the rock lines
-    allEnemies.forEach(function(enemy) {
-      if (
-        player.positionX <= Math.floor(enemy.positionX) + 60 &&
-        player.positionX >= Math.floor(enemy.positionX) - 60 &&
-        (player.positionY === enemy.positionY ||
-          (player.positionY === 106 && enemy.positionY === 130) ||
-          (player.positionY === 6 && enemy.positionY === 50))
-      ) {
-        // reset player
-        player.update();
-      }
-    });
+    if (player.checkCollisions()) {
+      // reset player location
+      player.update();
+    }
   }
 
   /* This is called by the update function and loops through all of the
    * objects within your allEnemies array as defined in app.js and calls
-   * their update() methods. It will then call the update function for your
-   * player object. These update methods should focus purely on updating
+   * their update() methods. These update methods should focus purely on updating
    * the data/properties related to the object. Do your drawing in your
    * render methods.
    */
@@ -112,7 +100,6 @@ var Engine = (function(global) {
     allEnemies.forEach(function(enemy) {
       enemy.update(dt);
     });
-    //     player.update();
   }
 
   /* This function initially draws the "game level", it will then call
