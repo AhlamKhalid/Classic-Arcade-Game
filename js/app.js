@@ -50,6 +50,13 @@ class Player {
     // counter helps to get the diamonds
     this.winCounter = 0;
   }
+  // reset player if collision happened
+  update() {
+    // x-axis position
+    this.positionX = 200;
+    // Y-axis position
+    this.positionY = 406;
+  }
   // draw the player on canvas
   render() {
     ctx.drawImage(Resources.get(this.sprite), this.positionX, this.positionY);
