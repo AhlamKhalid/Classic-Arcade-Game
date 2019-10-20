@@ -88,7 +88,8 @@ class Player {
         // modify y position
         this.positionY -= 100;
         // winning case
-        if (this.positionY === 6) {
+        // player should be in third rock line & is not collied with any enemy
+        if (this.positionY === 6 && !this.checkCollisions()) {
           // call reachWater function
           this.reachWater();
         }
