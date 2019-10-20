@@ -85,11 +85,10 @@ var Engine = (function(global) {
   // handles collision detection
   function checkCollisions() {
     // compare player x & y position against enemy x & y position
-    // three cases for x position: to ensure detection in any part of enemy (tail, center, head)
+    // x position: to ensure detection in any part of enemy (tail, center, head)
     if (
-      (player.positionX === Math.floor(enemy.positionX) ||
-        player.positionX === Math.floor(enemy.positionX) + 60 ||
-        player.positionX === Math.floor(enemy.positionX) - 60) &&
+      player.positionX <= Math.floor(enemy.positionX) + 60 &&
+      player.positionX >= Math.floor(enemy.positionX) - 60 &&
       player.positionY === enemy.positionY
     ) {
       // reset player
