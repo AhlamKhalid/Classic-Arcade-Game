@@ -136,6 +136,11 @@ class Player {
   }
 }
 
+// generates random speed between 100 and 400(included)
+function generateSpeed() {
+  return Math.floor(Math.random() * (400 - 100 + 1)) + 100;
+}
+
 // get the canvas as part of the window object(this)
 const ctx = this.ctx;
 
@@ -147,10 +152,10 @@ const ctx = this.ctx;
 const player = new Player();
 
 // Enemy object.
-// speed = 200 (as the speed increases, the enemey becomes faster)
+// speed = random (as the speed increases, the enemey becomes faster)
 // positionX = -100 (out of canvas from the left)
 // positionY = 206 (first rock line)
-const enemy = new Enemy(200, -100, 206);
+const enemy = new Enemy(generateSpeed(), -100, 206);
 
 // Add enemies to an array
 const allEnemies = [enemy];
