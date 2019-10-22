@@ -1,20 +1,58 @@
-# Classic Arcade Game Clone Project
+<!-- Title -->
+# Classic Arcade Game 
+A game where player tries to reach the water without colliding with enemies.
 
-## Table of Contents
+<!-- Table of contents -->
+## Contents
 
-- [Instructions](#instructions)
-- [Contributing](#contributing)
+* [Open the game](#Open-the-game)
+* [How to play](#How-to-play)
+* [Skills](#Skills)
+* [Demo](#Demo)
 
-## Instructions
+<!-- How to open the game -->
+## Open the game
 
-Use this [rubric](https://review.udacity.com/#!/rubrics/15/view) for self-checking your submission.
+- Get game folder: either download or clone it via: 
 
-Make sure the functions you write are **object-oriented** - either class functions (like `Player` and `Enemy`) or class prototype functions such as `Enemy.prototype.checkCollisions`. Also make sure that the keyword `this` is used appropriately within your class and class prototype functions to refer to the object the function is called upon.
+- Open the file `index.html`
 
-Your **README.md** file should be updated with instructions on both how to 1. Run and 2. Play your arcade game.
+## How to play
+Try your best to reach the water without being hit with enemies - actually just bugs :)), each time you reach the water successfully, you will get a diamond. To win and be the master of the game, try to get all the diamonds ;)
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+<!-- Features -->
+## Features
 
-## Contributing
+- player can move up, down, left, and right
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
+- player doesn't get out off canvas
+
+- collision detection between player and enemies
+
+- player turns back to initial loction if collision happened
+
+- player gets a diamond each time it reaches water
+
+- enemies have random speeds 
+
+<!-- Skills -->
+## Skills
+
+- HTML 
+
+- CSS
+
+- Javascript
+
+<!-- Live demo -->
+## Demo
+
+![demo of playing](/gif/demo.gif)
+
+
+
+
+
+
+
+
