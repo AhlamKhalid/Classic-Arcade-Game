@@ -52,6 +52,10 @@ class Player {
     // flag to deteremine if there is a collision
     this.isCollied = false;
   }
+  // change player
+  setSprite(sprite) {
+    this.sprite = sprite;
+  }
   // reset player if collision happened
   update() {
     // x-axis position
@@ -183,6 +187,17 @@ function createEnemies() {
   }
 }
 
+// determine which player user selected
+function choosePlayer(event) {
+  // what was clicked
+  const eventTarget = event.target;
+  // if it is image 
+  if (eventTarget.nodeName.toLowerCase() === "img") {
+    // change player
+    player.setSprite(eventTarget.getAttribute("src"));
+  }
+}
+
 // get the canvas as part of the window object(this)
 const ctx = this.ctx;
 
@@ -210,6 +225,11 @@ document.addEventListener("keyup", function(e) {
   };
   player.handleInput(allowedKeys[e.keyCode]);
 });
+
+// container holds player images
+const imgContainer = document.querySelector(".img-container");
+// Event listner to choose a player
+imgContainer.addEventListener("click", choosePlayer);
 
 // text above diamonds
 const text = document.querySelector(".diamonds-text");

@@ -13,8 +13,9 @@ body {
   border-radius: 10px;
 }
 
-/* text */
-.diamonds-text {
+/* text above diamonds & player images */
+.diamonds-text,
+.img-text {
   font-family: "Courier New", Courier, monospace;
   font-weight: bold;
   font-size: 25px;
